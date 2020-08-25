@@ -1,0 +1,35 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2><i class="fa fa-user"></i> Login</h2>
+
+<p>
+    <span class="errormsg">@TempData["feedback"]</span>
+</p>
+
+<div id="container">
+    <div id="form">
+        <form method="post">
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Email">Email</label>
+                </div>
+                <div class="col-75" style="margin-top: 18px">
+                    <input asp-for="Email" type="email" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Password"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Password" type="password" />
+                </div>
+            </div>
+            <button type="submit" class="btn-a">Login</button>
+        </form>
+    </div>
+</div>

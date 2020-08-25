@@ -1,0 +1,52 @@
+﻿@model User
+
+<h2><i class="fa fa-pencil-square-o"></i> Update user</h2>
+
+<p>
+    <span class="errormsg">@ViewBag.Error</span>
+    <span class="successmsg">@ViewBag.Success</span>
+</p>
+
+<div id="container">
+    <div id="form">
+        <form method="post">
+            <input asp-for="ID" type="hidden" />
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Firstname"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Firstname" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Lastname"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Lastname" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Email"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Email" type="email" required />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label asp-for="Password"></label>
+                </div>
+                <div class="col-75">
+                    <input asp-for="Password" type="text" />
+                    <em>(If you leave the password field empty, you will keep your current password.)</em>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Save" class="btn-a" />
+            </div>
+        </form>
+    </div>
+</div>

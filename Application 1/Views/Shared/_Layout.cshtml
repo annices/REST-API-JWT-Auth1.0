@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<!--
+This C# REST API script was fetched from https://annice.se and was created by Annice Strömberg, 2020.
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - REST API JWT Auth 1.0</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+</head>
+<body>
+    <header>
+        <div class="topnav" id="myTopnav">
+
+            <a class='@if (Context.Request.Path == "/") {<text>active</text>} else {<text>nav</text>}' asp-controller="Home" asp-action="Index">MVC Application 1</a>
+
+            @{ 
+                ViewBag.Email = TempData["email"];
+            }
+            @if (TempData["email"] != null)
+            {
+                <a class='@if (Convert.ToString(Context.Request.Path).Contains("/Home/Update")) {<text>active</text>} else {<text>nav</text>}' asp-controller="Home" asp-action="Update" asp-route-email="@ViewBag.Email">Update</a>
+                <a class='nav' asp-area="MVCWebAPI1" asp-controller="Home" asp-action="Logout">Logout</a>
+            }
+            else
+            {
+                <a class='@if (Context.Request.Path == "/Home/Login") {<text>active</text>} else {<text>nav</text>}' asp-controller="Home" asp-action="Login">Login</a>
+            }
+
+            @{ TempData.Keep("email"); }
+
+            <a href="javascript:void(0);" class="icon" onclick="dropDown()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="footer">
+        <div class="container">
+            REST API JWT Auth 1.0 - An ASP.NET Core MVC application from <a href="https://annice.se" target="_blank">Annice.se</a>.
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
